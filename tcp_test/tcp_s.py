@@ -7,23 +7,24 @@ if __name__ == '__main__':
     server.listen(0)
     connection, address = server.accept()
     print(connection, address)
-    num=0
+    num = 0
     while True:
         # connection, address = server.accept()
         # print(connection, address)
  
-        recv_str=connection.recv(1024)[0:5]
+        recv_str = connection.recv(1024)[0:5]
         print("enter 1")
-        recv_str=recv_str.decode("ascii")
+        recv_str = recv_str.decode("ascii")
         if not recv_str:
             break
-        num=num+1
-        print( recv_str,num)
+        num += 1
+        print(recv_str, num)
  
-        connection.send( bytes("clientRecv: %s," % recv_str,encoding="ascii"))
-        time.sleep( 0.5 )
- 
- 
+        connection.send(bytes("clientRecv: %s," % recv_str, encoding="ascii"))
+        time.sleep(0.5)
+
     connection.close()
     input("enter end")
-    
+
+    print('i have changed!')
+
